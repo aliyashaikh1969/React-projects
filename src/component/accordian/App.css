@@ -1,0 +1,25 @@
+body{
+    justify-content: center;
+}
+.wrapper {
+   background-color: rgba(0, 0, 0,0.1);
+   padding: 25px;
+   text-align: center;
+   border-radius: 10px;
+   width: 500px;
+}
+.content .data_item .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    margin: 10px 0;
+}
+/* 
+.entities{
+    transform: rotate(270deg);
+    width: 30px;
+    height: 30px;
+} */
