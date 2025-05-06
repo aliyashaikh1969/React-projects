@@ -1,14 +1,15 @@
-
 // import './App.css'
-import { Accordian } from './component/accordian'
+// import { Accordion } from './component/accordian/Index'
+import RandomColorGenerator from "./component/random-color/App";
 
 function App() {
-
   return (
     <>
-     <Accordian/>
+      {/* <Accordion/> */}
+
+      <RandomColorGenerator />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

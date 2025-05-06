@@ -1,8 +1,8 @@
-import { use, useState } from "react";
+import {  useState } from "react";
 import { data } from "./data";
 import "./App.css";
 
-export const Accordian = () => {
+export const Accordion = () => {
   const [selected, setSelected] = useState([]);
   const [multiple, setMultiple] = useState(false);
   const [multipleSelect, ssetMultipleSelect] = useState([]);
