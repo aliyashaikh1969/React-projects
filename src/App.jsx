@@ -8,14 +8,8 @@ function App() {
     <>
       {/* <Accordion/> */}
 
-<<<<<<< HEAD
       {/* <RandomColorGenerator /> */}
       <StarRating numberOfStar={5}/>
-=======
-      <RandomColorGenerator />
-
-      <StarRating/>
->>>>>>> project
     </>
 
   );
