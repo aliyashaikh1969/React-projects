@@ -7,7 +7,6 @@ export const StarRating = ({ numberOfStar = 5 }) => {
     const [hover , setHover] = useState(0)
     const [rating , setRating] = useState(0)
 
-    console.log(numberOfStar)
 
    
   return (
