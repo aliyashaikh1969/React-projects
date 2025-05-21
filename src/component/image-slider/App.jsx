@@ -1,59 +1,67 @@
 import { useEffect, useState } from "react";
 import { MdArrowBackIos } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
+import './App.css'
 
 
-const ImageSlider=({url ,limit =5})=>{
+const ImageSlider = ({ url, limit = 5 }) => {
 
-    const [loading , setLoading] = useState(false)
-    const [imgaes,setImages] = useState([])
-    const [errorMess,setErrorMess] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [imgaes, setImages] = useState([])
+    const [currentImage, setCurrentImage] = useState(0)
+    const [errorMess, setErrorMess] = useState("")
 
-    async function fetching(getUrl){
-        try{
+    async function fetching(getUrl) {
+        try {
             setLoading(true)
             let result = await fetch(`${getUrl}?page=1&limit=${limit}`)
-            let data =await result.json();
+            let data = await result.json();
             setImages(data)
             setLoading(false)
-
-
-        }catch(e){
+        } catch (e) {
             setErrorMess(e.message)
         }
+    }
 
+    useEffect(() => {
+        if (url !== "") fetching(url);
+    }, [url])
+
+    const handlePrevious = () => {
+        console.log("pre")
+        setCurrentImage(currentImage == 0 ? imgaes.length - 1 : currentImage - 1);
+    }
+
+    const handleNext = () => {
+        console.log("next")
+        setCurrentImage(currentImage == imgaes.length - 1 ? 0 : currentImage + 1);
 
     }
-    console.log(imgaes,imgaes.length)
 
-    useEffect(()=>{
-        if(url !== "") fetching(url) ;
-    },[url])
-
-
-    if(loading){
+    if (loading) {
         return <p>loading please wait</p>
     }
 
-    if(errorMess !==""){
+    if (errorMess !== "") {
         return <p>error on fetching data</p>
     }
 
 
-    return(
+    return (
         <>
-        <div className="container" style={{width:'400px',display:"flex"}}>
-            <button>
-                <MdArrowBackIos />
-            </button>
-       {
-           imgaes && imgaes.length ? imgaes.map((item,index)=>(
-               <img style={{width:"100%"}} src={item.download_url} alt="" />
-            )):null
-        }
+            <div className="container" style={{ width: '400px', display: "flex" }}>
+                <button onClick={handlePrevious}>
+                    <MdArrowBackIos />
+                </button>
+                {
+                    imgaes && imgaes.length ? imgaes.map((item, index) => (
+                        <img style={{ width: "100%" }} key={index} className={currentImage == index ? "active" : ""} src={item.download_url} alt="" />
+                    )) : null
+                }
 
-        <button><MdArrowForwardIos /></button>
-        </div>
+                <button onClick={handleNext}><MdArrowForwardIos /></button>
+              
+            </div>
         </>
     )
 }

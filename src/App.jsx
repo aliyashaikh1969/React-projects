@@ -13,7 +13,7 @@ function App() {
 
       {/* <StarRating/> */}
 
-      <ImageSlider url={'http://picsum.photos/v2/list'}/>
+      <ImageSlider url={'http://picsum.photos/v2/list'} limit={3}/>
 
 
     </>
