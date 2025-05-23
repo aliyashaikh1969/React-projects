@@ -59,8 +59,15 @@ const ImageSlider = ({ url, limit = 5 }) => {
                     )) : null
                 }
 
+                <span className="circle-indicator">
+                    {
+                        imgaes && imgaes.length ? imgaes.map((_,index) => (
+                            <button key={index} className={currentImage==index ? "indicator active-indicator":"indicator"}  onClick={()=>setCurrentImage(index)}></button>
+                        )) : null
+                    }
+                </span>
                 <button onClick={handleNext}><MdArrowForwardIos /></button>
-              
+
             </div>
         </>
     )
