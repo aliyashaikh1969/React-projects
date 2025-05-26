@@ -49,7 +49,7 @@ const ImageSlider = ({ url, limit = 5 }) => {
 
     return (
         <>
-            <div className="container" style={{ width: '400px', display: "flex" }}>
+            <div className="container image-slider" style={{ width: '400px', display: "flex" }}>
                 <button onClick={handlePrevious}>
                     <MdArrowBackIos />
                 </button>
