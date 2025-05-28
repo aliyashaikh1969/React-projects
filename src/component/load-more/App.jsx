@@ -6,6 +6,7 @@ const LoadMore = () => {
     const [loading, setLoading] = useState(false)
     const [count, setCount] = useState(0)
     const [productList, setProductList] = useState([])
+    const [disableButton,setDisableButton] = useState(false)
 
 
     async function fetchProduct() {
@@ -15,10 +16,8 @@ const LoadMore = () => {
             let result = await response.json();
 
             if (result && result.products && result.products.length) {
-                setProductList(result.products)
+                setProductList((pre)=>[...pre ,...result.products])
                 setLoading(false)
-                console.log(result)
-                console.log(result.products[0].images[0])
             }
         } catch (e) {
             console.log(e.message)
@@ -27,9 +26,15 @@ const LoadMore = () => {
 
     useEffect(() => {
         fetchProduct()
-    }, [])
+        console.log(productList)
+    }, [count])
 
-    if (loading) {
+    useEffect(()=>{
+        if(productList && productList.length>100){
+            setDisableButton(true)
+        }
+    })
+        if (loading) {
         return <p>loading data please wait...</p>
     }
 
@@ -48,7 +53,13 @@ const LoadMore = () => {
                         </div>
                         ))
                         }
+
                 </div>
+                        
+                        <button disabled={disableButton} onClick={()=>setCount(count +1)}>see more</button>
+                        {
+                            disableButton?<p>you have reached 100 limit</p>:""
+                        }
             </div>
         </>
     )
