@@ -6,7 +6,6 @@
 // import { StarRating } from "./component/star-rating/App";
 import TreeView from "./component/tree-view/App";
 import menus from "./component/tree-view/data";
-import MenuBar from "./component/tree-view/Index";
 
 function App() {
   return (
@@ -22,9 +21,8 @@ function App() {
       {/* <LoadMore/> */}
 
 
-      {/* <TreeView menus={menus}/> */}
+      <TreeView menus={menus}/>
 
-      <MenuBar/>
 
 
     </>

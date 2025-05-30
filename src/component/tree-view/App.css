@@ -1,0 +1,31 @@
+.tree-view-container{
+    background-color: rgb(86, 85, 85);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+}
+
+.menu-list-container{
+    list-style: none;
+    padding: 0;
+    
+}
+
+.list-item{
+    margin-bottom: 20px;
+    padding:0 25px;
+}
+.list-item .nested{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.nested span{
+    cursor: pointer;
+    font-size: 30px;
+
+}

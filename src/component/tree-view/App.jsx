@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './App.css'
 
 const TreeView = ({ menus = [] }) => {
     return (
@@ -40,8 +41,8 @@ const MenuItem = ({ item }) => {
     // console.log(item)
     return (
         <>
-            <li>
-                <div style={{ display: 'flex', gap: "20px" }}>
+            <li className="list-item">
+                <div className="nested" >
                     <p>{item.label}</p>
                     {
                         item && item.children && item.children.length ? <span onClick={() => handleToggleChildren(item.label)}>{
